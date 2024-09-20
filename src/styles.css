@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Modern and clean font */
+  background: linear-gradient(to bottom, #f4f7fc, #e9ecef); /* Soft, neutral background gradient */
+  color: #333; /* Dark gray for readability */
+  margin: 0;
+  padding: 50px; /* Increased padding for spaciousness */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Optional: Add a subtle background image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+/* Task Board Container */
+.task-board {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px; /* Generous spacing */
+  flex-wrap: wrap; /* Responsive layout */
+  max-width: 1400px; /* Limit the width for better visual balance */
+}
+
+/* Task Block Styles */
+.task-block {
+  width: 230px; /* Increased width for better content fitting */
+  min-height: 450px; /* Adequate height for content */
+  border-radius: 15px; /* Slightly softer corners */
+  background-color: #ffffff; /* Crisp white background */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+  overflow: hidden; /* Prevents overflow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smoother transitions */
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.task-block:hover {
+  transform: translateY(-5px); /* Subtle lift */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* More noticeable shadow */
+}
+
+/* Task Item Styles */
+.task-item {
+  margin-bottom: 20px; /* Space between items */
+  padding: 20px; /* Comfortable padding */
+  background-color: #f1f3f5; /* Very light gray for a clean look */
+  border-left: 6px solid #007bff; /* Distinctive blue border */
+  border-radius: 10px; /* Slightly rounded corners */
+  cursor: move;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transitions */
+  position: relative;
+  box-sizing: border-box;
+  display: flex; /* Align text and icons */
+  align-items: center;
+}
+
+.task-item:hover {
+  background-color: #e2e6ea; /* Slightly darker gray on hover */
+  transform: translateX(5px); /* Subtle slide to the right */
+}
+
+/* Add an icon to the task item */
+.task-item .icon {
+  margin-right: 15px; /* Space between icon and text */
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+/* Heading Styles */
+h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.9em; /* Larger font size for prominence */
+  color: #212529; /* Darker gray for headings */
+  text-transform: uppercase;
+  letter-spacing: 1.2px; /* Increased spacing for elegance */
+  border-bottom: 3px solid #ced4da; /* Subtle gray underline */
+  padding-bottom: 15px; /* Padding for separation */
+  position: relative;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .task-board {
+      flex-direction: column; /* Stack blocks on smaller screens */
+      align-items: center;
+  }
+
+  .task-block {
+      width: 100%; /* Full width on mobile */
+      max-width: 600px; /* Limit width on tablet */
+      margin-bottom: 30px; /* Space between stacked blocks */
+  }
+}
+
+/* Additional styles for a more premium look */
+.task-block::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #ffffff, #f7f9fc);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.task-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, #f1f3f5, #e2e6ea);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Subtle text shadow for better readability */
+h3, .task-item {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Optional: Add some subtle animations */
+.task-block:hover .task-item {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0.5;
+  }
+  to {
+      opacity: 1;
+  }
+}
